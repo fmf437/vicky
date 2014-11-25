@@ -30,8 +30,10 @@
 #include <QProcess>
 #include <QMessageBox>
 #include <QFileDialog>
-#include <QDebug>
+//#include <QDebug>
 #include <QObject>
+#include <QDir>
+#include <QFile>
 
 namespace Ui
 {

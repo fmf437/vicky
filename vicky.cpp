@@ -33,9 +33,10 @@ using namespace std;
 Vicky::Vicky(QWidget *parent) : QMainWindow(parent), ui(new Ui::Vicky)
 {
     ui->setupUi(this);
-    ui->label->setText("Default extension for music files: mp3");
-    this->setMaximumSize(673,545);
-    this->setMinimumSize(673,545);
+    ui->label->setText(tr("Default extension for music files: .mp3"));
+    ui->label_3->setText(tr("Output file(s) in the directory:"));
+    this->setMaximumSize(673,592);
+    this->setMinimumSize(673,592);
     this->setWindowTitle("Vicky converter version 1.5.0.");
 
     this->connect(ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
@@ -54,8 +55,8 @@ Vicky::Vicky(QWidget *parent) : QMainWindow(parent), ui(new Ui::Vicky)
     ui->pushButton_3->setShortcut(Qt::CTRL | Qt::Key_L);
 
     //ui->pushButton_4->setText(tr("Ca&ncel"));
-    //ui->pushButton_3->setShortcut(Qt::CTRL | Qt::Key_N);
-    ui->pushButton_4->setVisible(false);
+    //ui->pushButton_4->setShortcut(Qt::CTRL | Qt::Key_N);
+    //ui->pushButton_4->setVisible(false);
 
     ui->statusBar->showMessage(tr("Ready"),10000);
 }
@@ -98,46 +99,6 @@ void Vicky::on_pushButton_2_clicked()
         }
         this->convert(list_of_files_mp4);
     }
-    /*
-    int fg;
-    if (ui->listWidget->count() == 0)
-    {
-        QMessageBox::warning(this,tr("Files not found!"),tr("You need to put some files!"));
-    }
-    else
-    {
-        ui->lcdNumber->display(ui->listWidget->count());
-        // the animation of progressbar
-        ui->pushButton->setDisabled(true);
-        ui->pushButton_2->setDisabled(true);
-        ui->pushButton_3->setDisabled(true);
-        if (ui->listWidget->count() >= 7)
-        {
-            fg = (ui->listWidget->count())*14;
-            ui->progressBar->setValue(fg);
-            ui->progressBar->setValue(60);
-        }
-        else if (ui->listWidget->count() == 7)
-        {
-            fg = (ui->listWidget->count())*14;
-            ui->progressBar->setValue(fg);
-            ui->progressBar->setValue(50);
-        }
-        else if (ui->listWidget->count() <= 7)
-        {
-            fg = (ui->listWidget->count())*14;
-            ui->progressBar->setValue(fg);
-            ui->progressBar->setValue(40);
-        }
-        ui->progressBar->setValue(80);
-        this->convert(list_of_files_mp4);
-        ui->progressBar->setValue(100);
-        ui->pushButton->setDisabled(false);
-        ui->pushButton_2->setDisabled(false);
-        ui->pushButton_3->setDisabled(false);
-        ui->statusBar->showMessage(tr("Finished successfully!!!"),10000);
-    }
-    */
 }
 
 // operation of converting inside the method
@@ -148,6 +109,7 @@ int Vicky::convert(QVector <QString> files_mp4)
     QProcess *myprocess = new QProcess(this);
     QString program = "ffmpeg";
     QString list_of_files;
+    QFile ff;
     if (files_mp4.empty())
     {
         delete myprocess;
@@ -160,6 +122,7 @@ int Vicky::convert(QVector <QString> files_mp4)
         for (int i = 0; i < files_mp4.size(); i++)
         {
             //qDebug() << list_of_files_mp4.at(i);
+            list_of_files.clear();
             list_of_files.append(files_mp4.at(i));
             list_of_files.append(".mp3");
             //qDebug() << list_of_files;
@@ -167,6 +130,8 @@ int Vicky::convert(QVector <QString> files_mp4)
             myprocess->execute(program, arguments);
             ui->progressBar->setValue(50);
             files_mp4.remove(i);
+            if(ff.exists(list_of_files))
+                ui->listWidget_2->addItem(list_of_files);
             // method recursion
             this->convert(files_mp4);
         }
