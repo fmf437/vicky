@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>673</width>
-    <height>342</height>
+    <height>545</height>
    </rect>
   </property>
   <property name="windowIcon">
@@ -15,34 +15,41 @@
     <normaloff>:/icons/vicky64.png</normaloff>:/icons/vicky64.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>11</x>
+      <y>13</y>
       <width>651</width>
-      <height>281</height>
+      <height>481</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0" rowspan="2">
+     <item row="0" column="0">
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>Add file</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="2" rowspan="2">
+     <item row="0" column="1">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Nº of files:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0" rowspan="3" colspan="2">
+     <item row="1" column="0" rowspan="2" colspan="2">
       <widget class="QListWidget" name="listWidget"/>
      </item>
-     <item row="3" column="2">
+     <item row="1" column="2">
       <widget class="QLCDNumber" name="lcdNumber">
        <property name="palette">
         <palette>
@@ -467,7 +474,7 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="2">
+     <item row="2" column="2">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="pushButton_3">
@@ -483,9 +490,16 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
-     <item row="5" column="0" colspan="3">
+     <item row="3" column="0" colspan="3">
       <widget class="QProgressBar" name="progressBar">
        <property name="minimum">
         <number>0</number>
@@ -504,13 +518,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1" rowspan="2" colspan="2">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
   </widget>
@@ -520,7 +527,7 @@
      <x>0</x>
      <y>0</y>
      <width>673</width>
-     <height>25</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

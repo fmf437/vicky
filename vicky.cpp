@@ -23,12 +23,8 @@
 #include "vicky.h"
 #include "vicky_dialog.h"
 #include "ui_vicky.h"
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QProcess>
-#include <QDebug>
-#include <QObject>
 
+// for debugging
 #include <iostream>
 
 using namespace std;
@@ -38,15 +34,17 @@ Vicky::Vicky(QWidget *parent) : QMainWindow(parent), ui(new Ui::Vicky)
 {
     ui->setupUi(this);
     ui->label->setText("Default extension for music files: mp3");
-    this->setMaximumSize(673,342);
-    this->setMinimumSize(673,342);
-    this->setWindowTitle("Vicky converter version 1.0.0.");
+    this->setMaximumSize(673,545);
+    this->setMinimumSize(673,545);
+    this->setWindowTitle("Vicky converter version 1.5.0.");
+
     this->connect(ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
+
     ui->progressBar->setMinimum(0);
     ui->progressBar->setMaximum(100);
     ui->progressBar->setValue(0);
 
-    ui->pushButton->setText("&Add file");
+    ui->pushButton->setText("&Add file(s)");
     ui->pushButton->setShortcut(Qt::CTRL | Qt::Key_A);
 
     ui->pushButton_2->setText("&Convert");
@@ -54,6 +52,10 @@ Vicky::Vicky(QWidget *parent) : QMainWindow(parent), ui(new Ui::Vicky)
 
     ui->pushButton_3->setText("Clear &List");
     ui->pushButton_3->setShortcut(Qt::CTRL | Qt::Key_L);
+
+    //ui->pushButton_4->setText(tr("Ca&ncel"));
+    //ui->pushButton_3->setShortcut(Qt::CTRL | Qt::Key_N);
+    ui->pushButton_4->setVisible(false);
 
     ui->statusBar->showMessage(tr("Ready"),10000);
 }
@@ -67,14 +69,11 @@ Vicky::~Vicky()
 // add file button
 void Vicky::on_pushButton_clicked()
 {
-    QStringList file = QFileDialog::getOpenFileNames(this,tr("Open File"),"/home/","Video files (*.mp4)");
+    file = QFileDialog::getOpenFileNames(this,tr("Add Files"),"/home/filipe/C++/test_for_Vicky/","Video files (*.mp4)");
     if (file.isEmpty())
-    {
         file.clear();
-    }
     else
     {
-        //list_of_files_mp4.append(file);
         ui->listWidget->addItems(file);
         ui->lcdNumber->display(ui->listWidget->count());
     }
@@ -83,6 +82,23 @@ void Vicky::on_pushButton_clicked()
 // convert button
 void Vicky::on_pushButton_2_clicked()
 {
+    if (ui->listWidget->count() == 0)
+    {
+        QMessageBox::warning(this,tr("Files not found!"),tr("You need to put some files!"));
+    }
+    else
+    {
+        // for debug
+        cout << file.size() << "\n";
+        for (int i = 0; i < file.size(); ++i)
+        {
+            // for debug
+            cout << file.at(i).toLocal8Bit().constData() << "\n";
+            list_of_files_mp4.push_back(file.at(i));
+        }
+        this->convert(list_of_files_mp4);
+    }
+    /*
     int fg;
     if (ui->listWidget->count() == 0)
     {
@@ -121,36 +137,41 @@ void Vicky::on_pushButton_2_clicked()
         ui->pushButton_3->setDisabled(false);
         ui->statusBar->showMessage(tr("Finished successfully!!!"),10000);
     }
+    */
 }
 
+// operation of converting inside the method
 // int convert method
-int Vicky::convert(QVector <QString> list_of_files_mp4)
+int Vicky::convert(QVector <QString> files_mp4)
 {
     QStringList arguments;
-    QProcess *myproc = new QProcess(this);
+    QProcess *myprocess = new QProcess(this);
     QString program = "ffmpeg";
     QString list_of_files;
-    if (list_of_files_mp4.empty())
+    if (files_mp4.empty())
     {
-        delete myproc;
+        delete myprocess;
+        ui->progressBar->setValue(100);
+        QMessageBox::information(this,tr("Finished successfully"),tr("Operation finished successfully !!!"));
         return 0;
     }
     else
     {
-        for (int i = 0; i < list_of_files_mp4.size(); i++)
+        for (int i = 0; i < files_mp4.size(); i++)
         {
             //qDebug() << list_of_files_mp4.at(i);
-            list_of_files.append(list_of_files_mp4.at(i));
+            list_of_files.append(files_mp4.at(i));
             list_of_files.append(".mp3");
             //qDebug() << list_of_files;
-            arguments << "-i" << list_of_files_mp4.at(i) << "-acodec" << "libmp3lame" << "-ab" << "256k" << "-y" << list_of_files;
-            myproc->execute(program, arguments);
-            list_of_files_mp4.remove(i);
+            arguments << "-i" << files_mp4.at(i) << "-acodec" << "libmp3lame" << "-ab" << "256k" << "-y" << list_of_files;
+            myprocess->execute(program, arguments);
+            ui->progressBar->setValue(50);
+            files_mp4.remove(i);
             // method recursion
-            this->convert(list_of_files_mp4);
+            this->convert(files_mp4);
         }
     }
-    delete myproc;
+    delete myprocess;
     return 0;
 }
 
@@ -169,3 +190,8 @@ void Vicky::on_pushButton_3_clicked()
     ui->lcdNumber->display(0);
     ui->progressBar->setValue(0);
 }
+
+//void Vicky::on_pushButton_4_clicked()
+//{
+//    myprocess->kill();
+//}

@@ -25,6 +25,13 @@
 
 #include <QMainWindow>
 #include <QVector>
+#include <QStringList>
+#include <QString>
+#include <QProcess>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QDebug>
+#include <QObject>
 
 namespace Ui
 {
@@ -46,12 +53,15 @@ private slots:
     void on_pushButton_2_clicked();
     void on_actionVicky_triggered();
     void on_pushButton_3_clicked();
+    //void on_pushButton_4_clicked();
 
 private:
     Ui::Vicky *ui;
     QVector<QString> list_of_files_mp4;
     int convert(QVector<QString> list_of_files_mp4);
     void open_dialog();
+    QStringList file;
+    QProcess *myprocess;
 };
 
 #endif // VICKY_H
