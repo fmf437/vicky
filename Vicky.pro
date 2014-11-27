@@ -1,12 +1,8 @@
-#-------------------------------------------------
 #
-# Project created by QtCreator 2014-02-13T17:48:53
-#
-#-------------------------------------------------
-#
+#       This file is part of Vicky project
 #	name of file: Vicky.pro
 #
-#	Copyright 2014 Filipe Marques <eagle.software3@gmail.com>
+#	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
 #
 #	This program is free software; you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
