@@ -90,6 +90,9 @@ void Vicky::on_pushButton_2_clicked()
     }
     else
     {
+        ui->pushButton->setDisabled(true);
+        ui->pushButton_2->setDisabled(true);
+        ui->pushButton_3->setDisabled(true);
         // for debug
         cout << file.size() << "\n";
         for (int i = 0; i < file.size(); ++i)
@@ -99,6 +102,9 @@ void Vicky::on_pushButton_2_clicked()
             list_of_files_mp4.push_back(file.at(i));
         }
         this->convert(list_of_files_mp4);
+        ui->pushButton->setDisabled(false);
+        ui->pushButton_2->setDisabled(false);
+        ui->pushButton_3->setDisabled(false);
     }
 }
 
@@ -109,33 +115,40 @@ int Vicky::convert(QVector <QString> files_mp4)
     QStringList arguments;
     QProcess *myprocess = new QProcess(this);
     QString program = "ffmpeg";
-    QString list_of_files;
+    QString list_of_files, second;
     QFile ff;
     if (files_mp4.empty())
     {
-        delete myprocess;
+        ui->pushButton->setDisabled(false);
+        ui->pushButton_2->setDisabled(false);
+        ui->pushButton_3->setDisabled(false);
         ui->progressBar->setValue(100);
         QMessageBox::information(this,tr("Finished successfully"),tr("Operation finished successfully !!!"));
+        delete myprocess;
         return 0;
     }
     else
     {
-        for (int i = 0; i < files_mp4.size(); i++)
-        {
-            //qDebug() << list_of_files_mp4.at(i);
-            list_of_files.clear();
-            list_of_files.append(files_mp4.at(i));
-            list_of_files.append(".mp3");
-            //qDebug() << list_of_files;
-            arguments << "-i" << files_mp4.at(i) << "-acodec" << "libmp3lame" << "-ab" << "256k" << "-y" << list_of_files;
-            myprocess->execute(program, arguments);
-            ui->progressBar->setValue(50);
-            files_mp4.remove(i);
-            if(ff.exists(list_of_files))
-                ui->listWidget_2->addItem(list_of_files);
-            // method recursion
-            this->convert(files_mp4);
-        }
+        ui->pushButton->setDisabled(true);
+        ui->pushButton_2->setDisabled(true);
+        ui->pushButton_3->setDisabled(true);
+
+        list_of_files.append(files_mp4.data());
+        second.append(files_mp4.data());
+        second.append(".mp3");
+
+        if(ff.exists(list_of_files))
+            ui->listWidget_2->addItem(second);
+
+        //qDebug() << list_of_files;
+        arguments << "-i" << list_of_files << "-acodec" << "libmp3lame" << "-ab" << "256k" << "-y" << second;
+        myprocess->execute(program, arguments);
+        files_mp4.removeFirst();
+        ui->progressBar->setValue(50);
+        list_of_files.clear();
+        second.clear();
+        // method recursion
+        this->convert(files_mp4);
     }
     delete myprocess;
     return 0;
@@ -153,6 +166,7 @@ void Vicky::on_actionVicky_triggered()
 void Vicky::on_pushButton_3_clicked()
 {
     ui->listWidget->clear();
+    ui->listWidget_2->clear();
     ui->lcdNumber->display(0);
     ui->progressBar->setValue(0);
 }

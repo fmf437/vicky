@@ -26,6 +26,7 @@ QT += widgets
 
 TARGET = Vicky
 TEMPLATE = app
+CONFIG += c++11
 
 SOURCES += main.cpp vicky.cpp vicky_dialog.cpp
 
