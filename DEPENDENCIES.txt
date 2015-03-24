@@ -1,2 +1,0 @@
-qt5-default
-libav-tools (ffmpeg) 0.8.12-4:0.8.12-0ubuntu0.12.04.1 or greater

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Vicky
+GenericName=Vicky
+Comment=GUI wrapper of GNU Coreutils sha1sum
+Comment[en_US]=GUI wrapper of GNU Coreutils sha1sum
+Comment[en_GB]=GUI wrapper of GNU Coreutils sha1sum
+Comment[pt]=Interface gráfica do programa sha1sum do GNU Coreutils
+Comment[pt_BR]=Interface gráfica do programa sha1sum do GNU Coreutils
+Exec=vicky
+Icon=vicky
+Terminal=False
+Type=Application
+Categories=System;

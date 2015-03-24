@@ -21,8 +21,8 @@
  *
  */
 
-#include "vicky.h"
-#include "vicky_dialog.h"
+#include "inc/vicky.h"
+#include "inc/vicky_dialog.h"
 #include "ui_vicky.h"
 
 // for debugging

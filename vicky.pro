@@ -1,6 +1,6 @@
 #
 #       This file is part of Vicky project
-#	name of file: Vicky.pro
+#	name of file: vicky.pro
 #
 #	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
 #
@@ -20,21 +20,24 @@
 #	MA 02110-1301, USA.
 #
 
-QT       += core gui
-
-QT += widgets
+QT       += core gui widgets
 
 TARGET = Vicky
 TEMPLATE = app
 CONFIG += c++11
+CONFIG += release
 
-SOURCES += main.cpp vicky.cpp vicky_dialog.cpp
+VERSION += 1.5.1
 
-HEADERS  += vicky.h vicky_dialog.h
+HEADERS +=  inc/vicky.h \
+            inc/vicky_dialog.h
 
-FORMS    += vicky.ui vicky_dialog.ui
+SOURCES +=  src/main.cpp \
+            src/vicky.cpp \
+            src/vicky_dialog.cpp
 
-RESOURCES += vv.qrc
+RESOURCES += resource/vv.qrc
 
-target.path = /opt/TARGET
-INSTALLS += target
+FORMS +=    ui/vicky.ui \
+            ui/vicky_dialog.ui
+

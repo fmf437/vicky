@@ -1,6 +1,6 @@
 /*
  *  This file is part of Vicky project
- *	name of file: vicky_dialog.cpp
+ *	name of file: main.cpp
  *
  *	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
  *
@@ -21,18 +21,13 @@
  *
  */
 
-#include "vicky_dialog.h"
-#include "ui_vicky_dialog.h"
+#include "inc/vicky.h"
+#include <QApplication>
 
-Vicky_dialog::Vicky_dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Vicky_dialog)
+int main(int argc, char *argv[])
 {
-    ui->setupUi(this);
-    this->setWindowTitle("About: Vicky converter version 1.0.0");
-    this->setMaximumSize(560,287);
-    this->setMinimumSize(560,287);
-}
-
-Vicky_dialog::~Vicky_dialog()
-{
-    delete ui;
+    QApplication a(argc, argv);
+    Vicky w;
+    w.show();
+    return a.exec();
 }
