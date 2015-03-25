@@ -32,10 +32,6 @@ Here are the rules to promote a good relationship between developers and the com
 
 This avoids confusion between revisions of source code!
 
-#### Code Convention
-
-The code convention used in this project is CamelCase, except in signal / slot member functions - this may change over time.
-
 #### Software need for coding or testing
 
 * C++ tool chain: [g++](https://gcc.gnu.org/), [qt5, qtcreator, qmake](http://qt-project.org/), [make](http://www.gnu.org/software/make/)
