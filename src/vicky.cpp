@@ -38,7 +38,7 @@ Vicky::Vicky(QWidget *parent) : QMainWindow(parent), ui(new Ui::Vicky)
     ui->label_3->setText(tr("Output file(s) in the directory:"));
     this->setMaximumSize(673,592);
     this->setMinimumSize(673,592);
-    this->setWindowTitle("Vicky converter version 1.5.0.");
+    this->setWindowTitle("Vicky converter");
 
     this->connect(ui->actionExit,SIGNAL(triggered()),this,SLOT(close()));
 

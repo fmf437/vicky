@@ -2,6 +2,5 @@
     <qresource prefix="/">
         <file>icons/vicky24.png</file>
         <file>icons/vicky128.png</file>
-        <file>icons/vicky64.png</file>
     </qresource>
 </RCC>

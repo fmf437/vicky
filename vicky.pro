@@ -41,3 +41,21 @@ RESOURCES += resource/vv.qrc
 FORMS +=    ui/vicky.ui \
             ui/vicky_dialog.ui
 
+# Installation Linux
+unix {
+    target.path = /usr/bin/vicky
+
+    desk.path = /usr/share/applications/vicky.desktop
+    desk.files = vicky.desktop
+
+    icon24.path = /usr/share/icons/vicky.png
+    icon24.files = resource/icons/vicky24.png
+
+    icon24_2.path = /usr/share/icons/hicolor/24x24/apps/vicky.png
+    icon24_2.files = resource/icons/vicky24.png
+
+    icon128.path = /usr/share/icons/hicolor/128x128/apps/vicky.png
+    icon128.files = resource/icons/vicky128.png
+
+    INSTALLS += target desk icon24 icon24_2 icon128
+}

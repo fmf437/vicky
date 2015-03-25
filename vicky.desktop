@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Vicky
 GenericName=Vicky
-Comment=GUI wrapper of GNU Coreutils sha1sum
-Comment[en_US]=GUI wrapper of GNU Coreutils sha1sum
-Comment[en_GB]=GUI wrapper of GNU Coreutils sha1sum
-Comment[pt]=Interface gráfica do programa sha1sum do GNU Coreutils
-Comment[pt_BR]=Interface gráfica do programa sha1sum do GNU Coreutils
+Comment=Vicky converts video files to sound files
+Comment[en_US]=Vicky converts video files to sound files
+Comment[en_GB]=Vicky converts video files to sound files
+Comment[pt]=Vicky converte ficheiros de video para ficheiros de som
+Comment[pt_BR]=Vicky converte ficheiros de video para ficheiros de som
 Exec=vicky
 Icon=vicky
 Terminal=False

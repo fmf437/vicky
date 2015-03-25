@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowIcon">
-   <iconset resource="vv.qrc">
+   <iconset resource="../resource/vv.qrc">
     <normaloff>:/icons/vicky64.png</normaloff>:/icons/vicky64.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -530,7 +530,7 @@
      <x>0</x>
      <y>0</y>
      <width>673</width>
-     <height>28</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -564,7 +564,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="vv.qrc"/>
+  <include location="../resource/vv.qrc"/>
  </resources>
  <connections/>
 </ui>

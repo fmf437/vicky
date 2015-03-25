@@ -27,7 +27,7 @@
 Vicky_dialog::Vicky_dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Vicky_dialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle("About: Vicky converter version 1.0.0");
+    this->setWindowTitle("About: Vicky converter");
     this->setMaximumSize(560,287);
     this->setMinimumSize(560,287);
 }
