@@ -1,6 +1,6 @@
 /*
  *  This file is part of Vicky project
- *	name of file: vicky_dialog.cpp
+ *	name of file: Convert.cpp
  *
  *	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
  *
@@ -21,18 +21,38 @@
  *
  */
 
-#include "inc/vicky_dialog.h"
-#include "ui_vicky_dialog.h"
+#include "inc/Convert.hpp"
 
-Vicky_dialog::Vicky_dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Vicky_dialog)
+Convert::Convert()
 {
-    ui->setupUi(this);
-    this->setWindowTitle("About: Vicky converter");
-    this->setMaximumSize(560,287);
-    this->setMinimumSize(560,287);
+    list.clear();
+    program = "ffmpeg";
 }
 
-Vicky_dialog::~Vicky_dialog()
+Convert::~Convert()
 {
-    delete ui;
+}
+
+void Convert::run()
+{
+    for (int i = 0; i < list.size(); ++i)
+    {
+        list_of_file.append(list.at(i));
+        second.append(list.at(i));
+        second.append(".mp3");
+        arguments << "-i" << list_of_file << "-acodec" << "libmp3lame" << "-ab" << "256k" << "-y" << second;
+        mutex.lock();
+        QProcess::execute(program, arguments);
+        mutex.unlock();
+        arguments.clear();
+        list_of_file.clear();
+        second.clear();
+    }
+    emit resultReady();
+}
+
+void Convert::setList(QStringList list_of_files)
+{
+    list = list_of_files;
+    list_of_files.clear();
 }

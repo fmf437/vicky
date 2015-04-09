@@ -1,6 +1,6 @@
 /*
  *  This file is part of Vicky project
- *	name of file: vicky_dialog.h
+ *	name of file: Vicky.hpp
  *
  *	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
  *
@@ -21,26 +21,43 @@
  *
  */
 
-#ifndef VICKY_DIALOG_H
-#define VICKY_DIALOG_H
+#ifndef VICKY_HPP
+#define VICKY_HPP
 
-#include <QDialog>
+#include <QMainWindow>
+#include <QStringList>
+#include <QString>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QObject>
+#include <QPointer>
+
+#include "Convert.hpp"
 
 namespace Ui
 {
-class Vicky_dialog;
+class Vicky;
 }
 
-class Vicky_dialog : public QDialog
+class Vicky : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Vicky_dialog(QWidget *parent = 0);
-    ~Vicky_dialog();
+    explicit Vicky(QWidget *parent = 0);
+    ~Vicky();
+
+private slots:
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+    void on_actionVicky_triggered();
+    void handleResults();
 
 private:
-    Ui::Vicky_dialog *ui;
+    Ui::Vicky *ui;
+    QStringList files;
+    QString item;
+    QPointer<Convert> conv;
 };
 
-#endif // VICKY_DIALOG_H
+#endif // VICKY_HPP

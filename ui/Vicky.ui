@@ -6,61 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>673</width>
+    <width>680</width>
     <height>592</height>
    </rect>
   </property>
   <property name="windowIcon">
    <iconset resource="../resource/vv.qrc">
-    <normaloff>:/icons/vicky64.png</normaloff>:/icons/vicky64.png</iconset>
+    <normaloff>:/icons/vicky24.png</normaloff>:/icons/vicky24.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>8</y>
-      <width>651</width>
+      <x>10</x>
+      <y>10</y>
+      <width>661</width>
       <height>531</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="4" column="0" colspan="4">
-      <widget class="QProgressBar" name="progressBar">
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="textDirection">
-        <enum>QProgressBar::TopToBottom</enum>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>
-     <item row="2" column="2" colspan="2">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Clear List</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="text">
-          <string>Convert</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+     <item row="0" column="1">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
@@ -69,14 +52,37 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="label_2">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton">
        <property name="text">
-        <string>Nº of files:</string>
+        <string>Add file</string>
        </property>
       </widget>
      </item>
      <item row="0" column="3">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="4" column="0" colspan="6">
+      <widget class="QProgressBar" name="progressBar">
+       <property name="value">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="6">
+      <widget class="QListWidget" name="listWidget"/>
+     </item>
+     <item row="0" column="5">
       <widget class="QLCDNumber" name="lcdNumber">
        <property name="palette">
         <palette>
@@ -501,25 +507,22 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0" colspan="4">
-      <widget class="QListWidget" name="listWidget"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Add file</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0" colspan="4">
+     <item row="3" column="0" colspan="6">
       <widget class="QListWidget" name="listWidget_2"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Nº of files:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3" colspan="3">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Convert</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -529,7 +532,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>673</width>
+     <width>680</width>
      <height>26</height>
     </rect>
    </property>
@@ -542,7 +545,7 @@
    </widget>
    <widget class="QMenu" name="menu_About">
     <property name="title">
-     <string>&amp;About</string>
+     <string>A&amp;bout</string>
     </property>
     <addaction name="separator"/>
     <addaction name="actionVicky"/>

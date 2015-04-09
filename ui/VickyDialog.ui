@@ -14,7 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/vv.qrc">
+   <iconset>
     <normaloff>:/icons/vicky64.png</normaloff>:/icons/vicky64.png</iconset>
   </property>
   <widget class="QWidget" name="layoutWidget">
@@ -95,7 +95,7 @@
          <item>
           <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>Vicky converter version 1.5.1</string>
+            <string>Vicky converter version 1.6.0</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -172,7 +172,8 @@
          <item>
           <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.github.com/filipe-marques/vicky&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Vicky converter&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.github.com/filipe-marques/vicky&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Vicky
+&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>

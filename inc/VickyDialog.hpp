@@ -1,6 +1,6 @@
 /*
  *  This file is part of Vicky project
- *	name of file: vicky.h
+ *	name of file: VickyDialog.hpp
  *
  *	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
  *
@@ -21,50 +21,26 @@
  *
  */
 
-#ifndef VICKY_H
-#define VICKY_H
+#ifndef VICKY_DIALOG_HPP
+#define VICKY_DIALOG_HPP
 
-#include <QMainWindow>
-#include <QVector>
-#include <QStringList>
-#include <QString>
-#include <QProcess>
-#include <QMessageBox>
-#include <QFileDialog>
-//#include <QDebug>
-#include <QObject>
-#include <QDir>
-#include <QFile>
+#include <QDialog>
 
 namespace Ui
 {
-class Vicky;
+class Vicky_dialog;
 }
 
-// classe Vicky herda a classe QMainWindow
-class Vicky : public QMainWindow
+class Vicky_dialog : public QDialog
 {
-
     Q_OBJECT
 
 public:
-    explicit Vicky(QWidget *parent = 0);
-    ~Vicky();
-
-private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
-    void on_actionVicky_triggered();
-    void on_pushButton_3_clicked();
-    //void on_pushButton_4_clicked();
+    explicit Vicky_dialog(QWidget *parent = 0);
+    ~Vicky_dialog();
 
 private:
-    Ui::Vicky *ui;
-    QVector<QString> list_of_files_mp4;
-    int convert(QVector<QString> list_of_files_mp4);
-    void open_dialog();
-    QStringList file;
-    QProcess *myprocess;
+    Ui::Vicky_dialog *ui;
 };
 
-#endif // VICKY_H
+#endif // VICKY_DIALOG_HPP

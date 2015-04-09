@@ -27,21 +27,23 @@ TEMPLATE = app
 CONFIG += c++11
 CONFIG += release
 
-VERSION += 1.5.1
+VERSION += 1.6.0
 
-HEADERS +=  inc/vicky.h \
-            inc/vicky_dialog.h
+HEADERS +=  inc/Vicky.hpp \
+            inc/VickyDialog.hpp \
+            inc/Convert.hpp
 
 SOURCES +=  src/main.cpp \
-            src/vicky.cpp \
-            src/vicky_dialog.cpp
+            src/Vicky.cpp \
+            src/VickyDialog.cpp \
+            src/Convert.cpp
 
 RESOURCES += resource/vv.qrc
 
-FORMS +=    ui/vicky.ui \
-            ui/vicky_dialog.ui
+FORMS +=    ui/Vicky.ui \
+            ui/VickyDialog.ui
 
-# Installation Linux
+# Installation on Linux
 unix {
     target.path = /usr/bin/vicky
 

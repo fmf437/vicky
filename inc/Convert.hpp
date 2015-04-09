@@ -1,6 +1,6 @@
 /*
  *  This file is part of Vicky project
- *	name of file: main.cpp
+ *	name of file: Convert.hpp
  *
  *	Copyright (C) 2014 2015 Filipe Marques <eagle.software3@gmail.com>
  *
@@ -21,13 +21,33 @@
  *
  */
 
-#include "inc/Vicky.hpp"
-#include <QApplication>
+#ifndef CONVERT_HPP
+#define CONVERT_HPP
 
-int main(int argc, char *argv[])
+#include <QThread>
+#include <QMutex>
+#include <QVector>
+#include <QString>
+#include <QStringList>
+#include <QProcess>
+
+class Convert : public QThread
 {
-    QApplication a(argc, argv);
-    Vicky w;
-    w.show();
-    return a.exec();
-}
+public:
+    Convert();
+    ~Convert();
+    void setList(QStringList list_of_files);
+
+signals:
+    void resultReady();
+
+private:
+    Q_OBJECT
+    void run() override;
+
+    QMutex mutex;
+    QStringList list, arguments;
+    QString program, list_of_file, second;
+};
+
+#endif // CONVERT_HPP
