@@ -9,7 +9,6 @@
 - if you select one or more files at once that files will be converted;
 
 #### Known bugs:
-- when is converting the window program (maybe) freeze and just stop freezing when finish converting (this will be fixed in future versions);
 - the progress bar don't work as expected (this will be fixed in future versions);
 
 #### Milestones:
