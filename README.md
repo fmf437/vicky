@@ -4,7 +4,22 @@
 #### Vicky is licensed under GNU GPL v.3 and is Copyright (C) 2014 2015 of Filipe Marques.
 #### Build in C++11 Qt5. :smile:
 
-#### It currently does:
+If you use [Manjaro Linux](http://www.manjaro.org/) operating system, you can install vicky:
+
+```
+sudo pacman -S vicky
+```
+
+or in octopi or pamac search for: vicky
+
+On the other hand, if you use [Archlinux](https://www.archlinux.org/) or [other Archlinux based operating system](https://wiki.archlinux.org/index.php/Arch_based_distributions_%28active%29#Arch-influenced_distributions) you can install vicky
+using the [Arch User Repository](https://aur.archlinux.org) and yaourt:
+
+```
+sudo yaourt -S vicky
+```
+
+#### What currently does:
 - if you select one file and click convert that file will be converted;
 - if you select one or more files at once that files will be converted;
 
