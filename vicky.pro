@@ -47,16 +47,16 @@ FORMS +=    ui/Vicky.ui \
 unix {
     target.path = /usr/bin/vicky
 
-    desk.path = /usr/share/applications/vicky.desktop
+    desk.path = /usr/share/applications/vicky
     desk.files = vicky.desktop
 
-    icon24.path = /usr/share/icons/vicky.png
+    icon24.path = /usr/share/icons/vicky
     icon24.files = resource/icons/vicky24.png
 
-    icon24_2.path = /usr/share/icons/hicolor/24x24/apps/vicky.png
+    icon24_2.path = /usr/share/icons/hicolor/24x24/apps/vicky
     icon24_2.files = resource/icons/vicky24.png
 
-    icon128.path = /usr/share/icons/hicolor/128x128/apps/vicky.png
+    icon128.path = /usr/share/icons/hicolor/128x128/apps/vicky
     icon128.files = resource/icons/vicky128.png
 
     license.path = /usr/share/licenses/vicky/LICENSE
