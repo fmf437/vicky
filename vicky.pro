@@ -22,7 +22,7 @@
 
 QT       += core gui widgets
 
-TARGET = vicky
+TARGET = Vicky
 TEMPLATE = app
 CONFIG += c++11
 CONFIG += release
