@@ -1,6 +1,6 @@
 ## Vicky
 
-#### Vicky is a converter of multimedia files, that converts video to sound files (.mp3) using ffmpeg and is currently at the version 1.5.1 .
+#### Vicky is a converter of multimedia files, that converts video to sound files (.mp3) using ffmpeg and is currently at the version 1.6.0 .
 #### Vicky is licensed under GNU GPL v.3 and is Copyright (C) 2014 2015 of Filipe Marques.
 #### Build in C++11 Qt5. :smile:
 
@@ -16,7 +16,7 @@ On the other hand, if you use [Archlinux](https://www.archlinux.org/) or [other 
 using the [Arch User Repository](https://aur.archlinux.org) and yaourt:
 
 ```
-sudo yaourt -S vicky
+yaourt -S vicky
 ```
 
 #### What currently does:
