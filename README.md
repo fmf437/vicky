@@ -12,7 +12,7 @@ sudo pacman -S vicky
 
 or in octopi or pamac search for: vicky
 
-On the other hand, if you use [Archlinux](https://www.archlinux.org/) or [other Archlinux based operating system](https://wiki.archlinux.org/index.php/Arch_based_distributions_%28active%29#Arch-influenced_distributions) you can install vicky
+On the other hand, if you use [Archlinux](https://www.archlinux.org/) you can install vicky
 using the [Arch User Repository](https://aur.archlinux.org) and yaourt:
 
 ```
